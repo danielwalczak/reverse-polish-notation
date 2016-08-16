@@ -20,8 +20,7 @@ function evalExpression (tokens) {
 
   for (const token of tokens) {
     if (NUMBER_REG.test(token)) {
-      var input = parseFloat(token);
-      stack.push(input);
+      stack.push(parseFloat(token));
     } else {
       if (stack.length < 2) throw new Error('Must have at least two parameters to perform operation');
 
