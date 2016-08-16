@@ -1,1 +1,1 @@
-reverse-polish-notation
+Javascript implementation of Reverse Polish notation
