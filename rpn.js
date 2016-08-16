@@ -22,9 +22,9 @@ function evalExpression (tokens) {
     if (NUMBER_REG.test(token)) {
       stack.push(parseFloat(token));
     } else {
-      if (stack.length < 2) throw new Error('Must have at least two parameters to perform operation');
-
       const argsCount = operators[token].length;
+      if (stack.length < argsCount) throw new Error('Stack must have as many parameters as operator requires to perform operation');
+
       const args = stack.splice(stack.length - argsCount, argsCount);
       stack.push(evalOperator(token, args));
     }
